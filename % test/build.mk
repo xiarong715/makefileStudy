@@ -1,5 +1,6 @@
 include allinone_work.mk
 include $(MAKE_FILE)
+include tools_chain.mk
 
 DST_C_OBJ := $(patsubst %.c,%.o,$(LOCAL_C_SRC))
 DST_C_OBJ := $(foreach one,$(DST_C_OBJ),$(LOCAL_OUT_PATH)/$(one))

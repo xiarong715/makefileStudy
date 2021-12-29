@@ -1,4 +1,5 @@
 include $(MAKE_FILE)
+include tools_chain.mk		# 相当于把tools_chain.mk文件内容放到此处，则prebuild.mk可以使用tools_chain.mk中定义的变量
 
 DST_C := $(patsubst %.c,%.d,$(LOCAL_C_SRC))
 DST_C := $(foreach one,$(DST_C),$(LOCAL_OUT_PATH)/$(one))
@@ -6,7 +7,7 @@ DST_C := $(foreach one,$(DST_C),$(LOCAL_OUT_PATH)/$(one))
 DST_CPP := $(patsubst %.cpp,%.d,$(LOCAL_CPP_SRC))
 DST_CPP := $(foreach one,$(DST_CPP),$(LOCAL_OUT_PATH)/$(one))
 
-ALLINONE_FILE=allinone_work.mk
+ALLINONE_FILE=allinone_$(LOCAL_MODULE).mk
 
 all: $(ALLINONE_FILE)
 	@echo "prebuild success: $^"
